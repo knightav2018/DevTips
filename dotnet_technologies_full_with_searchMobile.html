@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Technologies for .NET Developers</title>
+    <style>
+        /* Reset for consistent styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f0ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6a0dad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header input[type="text"] {
+            width: 90%;
+            max-width: 300px;
+            padding: 8px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #4b0082;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            display: block;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px auto;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 10px;
+            word-break: break-word;
+        }
+
+        th {
+            background-color: #6a0dad;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            color: #6a0dad;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        #close-btn {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #close-btn:hover {
+            background-color: #d93636;
+        }
+
+        @media screen and (max-width: 768px) {
+            header, footer {
+                text-align: center;
+            }
+
+            table {
+                display: block;
+                overflow-x: scroll;
+                white-space: nowrap;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            #close-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="close-btn">✕</button>
+    <header>
+        <h1>Technologies for .NET Developers</h1>
+        <p>Your guide to essential tools and frameworks</p>
+        <input type="text" placeholder="Search...">
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>טכנולוגיה</th>
+                <th>תיאור</th>
+                <th>דוגמת קוד</th>
+                <th>חבילת NuGet</th>
+                <th>קישור לאתר</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>EF Core</td>
+                <td>ORM לעבודה עם מסדי נתונים ב-.NET, מפשט אינטראקציה עם מסדי נתונים יחסיים.</td>
+                <td><code>var users = dbContext.Users.ToList();</code></td>
+                <td>Microsoft.EntityFrameworkCore</td>
+                <td><a href="https://learn.microsoft.com/en-us/ef/core/">EF Core Documentation</a></td>
+            </tr>
+            <tr>
+                <td>Dapper</td>
+                <td>ORM קל משקל להרצת שאילתות SQL ידנית.</td>
+                <td><code>var users = connection.Query&lt;User&gt;("SELECT * FROM Users");</code></td>
+                <td>Dapper</td>
+                <td><a href="https://github.com/DapperLib/Dapper">Dapper GitHub</a></td>
+            </tr>
+            <tr>
+                <td>FluentValidation</td>
+                <td>ספרייה ליצירת חוקי ולידציה בצורה דקלרטיבית ב-.NET.</td>
+                <td><code>RuleFor(x =&gt; x.Name).NotEmpty();</code></td>
+                <td>FluentValidation</td>
+                <td><a href="https://docs.fluentvalidation.net/">FluentValidation Documentation</a></td>
+            </tr>
+            <tr>
+                <td>MediatR</td>
+                <td>ספרייה למימוש דפוס Mediator, מפשטת עיבוד בקשות ופקודות.</td>
+                <td><code>var result = await mediator.Send(new GetUserQuery { Id = userId });</code></td>
+                <td>MediatR</td>
+                <td><a href="https://github.com/jbogard/MediatR">MediatR GitHub</a></td>
+            </tr>
+            <tr>
+                <td>MassTransit</td>
+                <td>מסגרת לעבודה עם מתווכים להודעות ובניית מערכות אסינכרוניות.</td>
+                <td><code>bus.Publish(new OrderSubmitted { OrderId = 123 });</code></td>
+                <td>MassTransit</td>
+                <td><a href="https://masstransit.io/">MassTransit Documentation</a></td>
+            </tr>
+            <tr>
+                <td>xUnit</td>
+                <td>מסגרת לכתיבת בדיקות יחידה ב-.NET.</td>
+                <td><code>[Fact] public void Test() { Assert.True(true); }</code></td>
+                <td>xUnit</td>
+                <td><a href="https://xunit.net/">xUnit Documentation</a></td>
+            </tr>
+            <tr>
+                <td>Testcontainers</td>
+                <td>ספרייה לשימוש בקונטיינרים של Docker בבדיקות.</td>
+                <td><code>var container = new TestcontainersBuilder&lt;TestcontainersContainer&gt;().Build(); container.Start();</code></td>
+                <td>Testcontainers</td>
+                <td><a href="https://testcontainers.com/">Testcontainers Documentation</a></td>
+            </tr>
+            <tr>
+                <td>Fluent Assertions</td>
+                <td>ספרייה לכתיבת טענות (Assertions) אקספרסיביות בבדיקות.</td>
+                <td><code>result.Should().Be(expectedValue);</code></td>
+                <td>FluentAssertions</td>
+                <td><a href="https://fluentassertions.com/">Fluent Assertions Documentation</a></td>
+            </tr>
+            <tr>
+                <td>Bogus</td>
+                <td>מחולל נתונים מדומים לבדיקות.</td>
+                <td><code>var faker = new Faker&lt;User&gt;().RuleFor(u =&gt; u.Name, f =&gt; f.Name.FirstName());</code></td>
+                <td>Bogus</td>
+                <td><a href="https://github.com/bchavez/Bogus">Bogus GitHub</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <footer>
+        <p>&copy; 2025 .NET Developer Resources. All rights reserved.</p>
+    </footer>
+    <script>
+        // Initialize Telegram WebApp API
+        if (window.Telegram.WebApp.initData) {
+            const closeButton = document.getElementById('close-btn');
+            closeButton.style.display = 'inline-block'; // Show button only inside Telegram
+            closeButton.addEventListener('click', () => {
+                Telegram.WebApp.close();
+            });
+        }
+    </script>
+</body>
+</html>
