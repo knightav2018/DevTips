@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <title>Technologies for .NET Developers</title>
     <style>
         body {
@@ -68,14 +69,28 @@
         a:hover {
             text-decoration: underline;
         }
+        button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
     </style>
 </head>
 <body>
+    <button id="close-btn">Close</button>
     <header>
         <h1>Technologies for .NET Developers</h1>
         <p>Your guide to essential tools and frameworks</p>
         <input type="text" placeholder="Search...">
     </header>
+
     <table>
         <thead>
             <tr>
@@ -155,5 +170,11 @@
     <footer>
         <p>&copy; 2025 .NET Developer Resources. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('close-btn').addEventListener('click', () => {
+          Telegram.WebApp.close();
+        });
+      </script>
 </body>
 </html>
