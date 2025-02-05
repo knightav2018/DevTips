@@ -81,6 +81,9 @@
     button:hover {
       background-color: #005fa3;
     }
+    #close-btn {
+      display: none; /* Hidden by default */
+    }
     </style>
 </head>
 <body>
@@ -170,11 +173,15 @@
     <footer>
         <p>&copy; 2025 .NET Developer Resources. All rights reserved.</p>
     </footer>
-
     <script>
-        document.getElementById('close-btn').addEventListener('click', () => {
-          Telegram.WebApp.close();
-        });
+        // Initialize Telegram WebApp API
+        if (window.Telegram.WebApp.initData) {
+          const closeButton = document.getElementById('close-btn');
+          closeButton.style.display = 'inline-block'; // Show button only inside Telegram
+          closeButton.addEventListener('click', () => {
+            Telegram.WebApp.close();
+          });
+        }
       </script>
 </body>
 </html>
